@@ -5,10 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="100" Width="800" WindowStyle="None" AllowsTransparency="True" Opacity="0">
+        Title="MainWindow" 
+        Height="100" Width="800" 
+        WindowStyle="None" 
+        AllowsTransparency="True" 
+        Opacity="100" 
+        Background="#00000000" HorizontalAlignment="Center" VerticalAlignment="Center" 
+        WindowStartupLocation="CenterScreen">
     <Window.Effect>
         <DropShadowEffect/>
     </Window.Effect>
     <Grid>
+        <Border Height="60" Width="790" 
+                CornerRadius="2" 
+                Background="#004f36">
+            <Rectangle Height="70" Width="750" 
+                       Fill="#0f211b" 
+                       HorizontalAlignment="Center" VerticalAlignment="Center">
+            </Rectangle>
+        </Border>
+        <TextBox Height="50" Width="730"
+                 Background="#00000000"
+                 FontStyle="Italic" FontSize="30"
+                 TextAlignment="Left"
+                 Opacity="10"
+                 HorizontalContentAlignment="Center"
+                 BorderThickness="0" FontFamily="Microsoft JhengHei"
+                 Name="Searchbox"
+                 GotFocus="Searchbox_GotFocus">
+            Suchen ...
+        </TextBox>
+        <Rectangle Height="10" Width="700" VerticalAlignment="Top" Margin="30"/>
     </Grid>
 </Window>
