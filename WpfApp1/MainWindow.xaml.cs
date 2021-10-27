@@ -38,5 +38,17 @@ namespace WpfApp1
             Searchbox.Text = string.Empty;
             Searchbox.Foreground = Brushes.LightGray;
         }
+
+        /*TODO List:
+        - add dropdown box that expands with each new search hit
+        - add python link for command line invokation
+        - center text horizontally
+        - add library of search terms
+        - add visibility Toggle on hotkey and enter
+        - add options menu for:
+            - localised program index
+            - changing hotkeys
+  
+        */
     }
 }
