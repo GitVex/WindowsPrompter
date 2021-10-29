@@ -39,6 +39,16 @@ namespace WpfApp1
             Searchbox.Foreground = Brushes.LightGray;
         }
 
+        private void Searchbox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (Searchbox.IsFocused)
+            {
+                resultsBox.Height += 500;
+                Searchbox.Text = "change recieved";
+                
+            }
+        }
+
         /*TODO List:
         - add dropdown box that expands with each new search hit
             - Search algorythm:
