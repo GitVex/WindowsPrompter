@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="MainWindow" 
-        Height="100" Width="800" 
+        Height="Auto" Width="Auto" 
         WindowStyle="None" 
         AllowsTransparency="True" 
         Opacity="100" 
@@ -16,25 +16,32 @@
         <DropShadowEffect/>
     </Window.Effect>
     <Grid>
-        <Border Height="60" Width="790" 
-                CornerRadius="2" 
-                Background="#004f36">
+        <Grid Height="60" Width="790"
+              VerticalAlignment="Top"
+              Panel.ZIndex="1">
+            <Border CornerRadius="5" 
+                    Background="#0F0A0C"/>
             <Rectangle Height="70" Width="750" 
-                       Fill="#0f211b" 
-                       HorizontalAlignment="Center" VerticalAlignment="Center">
-            </Rectangle>
-        </Border>
-        <TextBox Height="50" Width="730"
-                 Background="#00000000"
-                 FontStyle="Italic" FontSize="30"
-                 TextAlignment="Left"
-                 Opacity="10"
-                 HorizontalContentAlignment="Center"
-                 BorderThickness="0" FontFamily="Microsoft JhengHei"
-                 Name="Searchbox"
-                 GotFocus="Searchbox_GotFocus">
-            Suchen ...
-        </TextBox>
-        <Rectangle Height="10" Width="700" VerticalAlignment="Top" Margin="30"/>
+                           Fill="#2E0E1B" 
+                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <TextBox Height="50" Width="730"
+                     Background="#00000000"
+                     FontStyle="Normal" FontSize="30" Padding="3"
+                     TextAlignment="Left"
+                     Opacity="10"
+                     HorizontalContentAlignment="Center" VerticalAlignment="Center"
+                     BorderThickness="0" FontFamily="Microsoft JhengHei"
+                     Name="Searchbox"
+                     GotFocus="Searchbox_GotFocus"
+                     Panel.ZIndex="2">
+                Suchen ...
+            </TextBox>
+        </Grid>
+        <Rectangle Height="510" Width="700" 
+                   VerticalAlignment="Top" 
+                   Margin="30"
+                   Fill="Black"
+                   Panel.ZIndex="0"/>
     </Grid>
 </Window>
