@@ -6,8 +6,7 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="MainWindow" 
-        Height="Auto" Width="Auto" SizeToContent="WidthAndHeight"
-        Margin="20"
+        Height="100" Width="800" 
         WindowStyle="None" 
         AllowsTransparency="True" 
         Opacity="100" 
@@ -16,33 +15,26 @@
     <Window.Effect>
         <DropShadowEffect/>
     </Window.Effect>
-    <Border Height="Auto" Width="Auto"
-                VerticalAlignment="Top"
+    <Grid>
+        <Border Height="60" Width="790" 
                 CornerRadius="2" 
                 Background="#004f36">
-        <Grid VerticalAlignment="Top">
-            <Canvas>
-                <TextBox Height="50" Width="730"
-                    Background="#00000000"
-                    FontStyle="Italic" FontSize="25" Padding="10"
-                    TextAlignment="Left"
-                    Opacity="10"
-                    HorizontalContentAlignment="Center" VerticalAlignment="Center"
-                    BorderThickness="0" FontFamily="Microsoft JhengHei"
-                    Name="Searchbox"
-                    GotFocus="Searchbox_GotFocus"
-                    TextChanged="Searchbox_TextChanged"
-                    Panel.ZIndex="1">Suchen ...
-                </TextBox>
-                <Rectangle Height="70" Width="760" 
+            <Rectangle Height="70" Width="750" 
                        Fill="#0f211b" 
-                       HorizontalAlignment="Center" VerticalAlignment="Center"
-                       Name="resultsBox"
-                       Panel.ZIndex="0"/>
-            </Canvas>
-            <Rectangle Height="10" Width="750" 
-                   VerticalAlignment="Top" HorizontalAlignment="Center"
-                   Margin="30"/>
-        </Grid>
-    </Border>
+                       HorizontalAlignment="Center" VerticalAlignment="Center">
+            </Rectangle>
+        </Border>
+        <TextBox Height="50" Width="730"
+                 Background="#00000000"
+                 FontStyle="Italic" FontSize="30"
+                 TextAlignment="Left"
+                 Opacity="10"
+                 HorizontalContentAlignment="Center"
+                 BorderThickness="0" FontFamily="Microsoft JhengHei"
+                 Name="Searchbox"
+                 GotFocus="Searchbox_GotFocus">
+            Suchen ...
+        </TextBox>
+        <Rectangle Height="10" Width="700" VerticalAlignment="Top" Margin="30"/>
+    </Grid>
 </Window>
