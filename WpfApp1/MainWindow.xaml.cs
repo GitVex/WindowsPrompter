@@ -41,6 +41,8 @@ namespace WpfApp1
 
         /*TODO List:
         - add dropdown box that expands with each new search hit
+            - Dropdown functionality:
+                - Whenver the searchbox is not blank and focused, listen for new search hits and if found, expand the dropdown
             - Search algorythm:
                 Deconstruction of the prompt into keywords.
                 e.g. "start firefox" deconstructs to 'start' and 'firefox', starting firefox
