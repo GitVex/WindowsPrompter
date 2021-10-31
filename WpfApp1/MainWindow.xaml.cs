@@ -23,20 +23,27 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-            watermark(Searchbox);
+            watermark(Searchbox, Searchbox_Watermark, "Suchen ...");
         }
 
-        private void watermark(TextBox toWatermark)
+        private void watermark(TextBox Controller, TextBlock Watermark, string msg)
         {
-            toWatermark.Text = "Suchen ...";
-            toWatermark.Opacity = 1;
-            toWatermark.Foreground = Brushes.Black;
+            Watermark.Text = msg;
+            Watermark.Opacity = .3;
+            Watermark.Foreground = Brushes.Black;
+
+            Controller.Text = string.Empty;
         }
 
         private void Searchbox_GotFocus(object sender, RoutedEventArgs e)
-        {
-            Searchbox.Text = string.Empty;
+        { 
             Searchbox.Foreground = Brushes.LightGray;
+            Searchbox_Watermark.Text = string.Empty;
+        }
+
+        private void Searchbox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            watermark(Searchbox, Searchbox_Watermark, "Suchen ...");
         }
 
         /*TODO List:

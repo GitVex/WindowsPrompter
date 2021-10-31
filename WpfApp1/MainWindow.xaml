@@ -37,9 +37,18 @@
                      BorderThickness="0" FontFamily="Microsoft JhengHei"
                      Name="Searchbox"
                      GotFocus="Searchbox_GotFocus"
-                     Panel.ZIndex="2">
+                     LostFocus="Searchbox_LostFocus"
+                     Panel.ZIndex="2"/>
+            <TextBlock Height="50" Width="730"
+                     Background="#00000000"
+                     FontStyle="Normal" FontSize="30" Padding="3"
+                     TextAlignment="Left"
+                     Opacity="10"
+                     VerticalAlignment="Center"
+                     FontFamily="Microsoft JhengHei"
+                     Name="Searchbox_Watermark">
                 Suchen ...
-            </TextBox>
+            </TextBlock>
         </Grid>
         <Rectangle Name="Resultbox"
                    Height="0" Width="700" 
