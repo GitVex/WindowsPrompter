@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 
 namespace WpfApp1
 {
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -24,6 +25,7 @@ namespace WpfApp1
         {
             InitializeComponent();
             watermark(Searchbox, Searchbox_Watermark, "Suchen ...");
+
         }
 
         private void watermark(TextBox Controller, TextBlock Watermark, string msg)
@@ -36,15 +38,18 @@ namespace WpfApp1
         }
 
         private void Searchbox_GotFocus(object sender, RoutedEventArgs e)
-        { 
+        {
             Searchbox.Foreground = Brushes.LightGray;
             Searchbox_Watermark.Text = string.Empty;
+            Resultbox.Height += 100;
         }
 
         private void Searchbox_LostFocus(object sender, RoutedEventArgs e)
         {
             watermark(Searchbox, Searchbox_Watermark, "Suchen ...");
         }
+
+
 
         /*TODO List:
         - add dropdown box that expands with each new search hit

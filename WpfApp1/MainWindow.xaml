@@ -51,7 +51,7 @@
             </TextBlock>
         </Grid>
         <Rectangle Name="Resultbox"
-                   Height="0" Width="700" 
+                   Height="50" Width="700" 
                    VerticalAlignment="Top" 
                    Margin="30"
                    Fill="#590929"
