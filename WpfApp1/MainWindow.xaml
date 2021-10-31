@@ -19,6 +19,9 @@
         <Grid Height="60" Width="790"
               VerticalAlignment="Top"
               Panel.ZIndex="1">
+            <Grid.Effect>
+                <DropShadowEffect/>
+            </Grid.Effect>
             <Border CornerRadius="5" 
                     Background="#0F0A0C"/>
             <Rectangle Height="70" Width="750" 
@@ -38,10 +41,11 @@
                 Suchen ...
             </TextBox>
         </Grid>
-        <Rectangle Height="510" Width="700" 
+        <Rectangle Name="Resultbox"
+                   Height="0" Width="700" 
                    VerticalAlignment="Top" 
                    Margin="30"
-                   Fill="Black"
+                   Fill="#590929"
                    Panel.ZIndex="0"/>
     </Grid>
 </Window>
