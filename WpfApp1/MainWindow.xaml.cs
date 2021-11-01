@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -45,11 +47,22 @@ namespace WpfApp1
         }
 
         private void Searchbox_TextChanged(object sender, RoutedEventArgs e)
-        {            
-
+        {
+            Searchbox.IsReadOnly = true;
             if (!(Searchbox.Text == string.Empty))
             {
                 //insert code for parsing the textbox Text to python.
+                try
+                {
+                    Process python = new Process();
+                    python.StartInfo.FileName = "../PythonCLI/CLIExec.py";
+                    python.StartInfo.UseShellExecute = false;
+                    python.Start();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error");
+                }
                 if (Resultbox.Height < 200)
                 {
                     Resultbox.Height += 10;
@@ -59,6 +72,7 @@ namespace WpfApp1
             {
                 Resultbox.Height = 50;
             }
+            Searchbox.IsReadOnly = false;
         }
 
 
