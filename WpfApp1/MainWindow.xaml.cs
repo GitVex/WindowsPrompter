@@ -41,7 +41,6 @@ namespace WpfApp1
         {
             Searchbox.Foreground = Brushes.LightGray;
             Searchbox_Watermark.Text = string.Empty;
-            Resultbox.Height += 100;
         }
 
         private void Searchbox_LostFocus(object sender, RoutedEventArgs e)
@@ -49,6 +48,22 @@ namespace WpfApp1
             watermark(Searchbox, Searchbox_Watermark, "Suchen ...");
         }
 
+        private void Searchbox_TextChanged(object sender, RoutedEventArgs e)
+        {            
+
+            if (!(Searchbox.Text == string.Empty))
+            {
+                //insert code for parsing the textbox Text to python.
+                if (Resultbox.Height < 200)
+                {
+                    Resultbox.Height += 10;
+                }
+            } 
+            else
+            {
+                Resultbox.Height = 50;
+            }
+        }
 
 
         /*TODO List:
@@ -70,6 +85,14 @@ namespace WpfApp1
         - add options menu for:
             - localised program index
             - changing hotkeys
+            - changing color scheme
+        - add context-based command palettes:
+            - if opened when explorer is focused:
+                - "add <filetype> <filename>" adds a new file
+                - "symbols <small, large, list, etc.>" changes iconsize of the current directory
+            - if opened when browser is open:
+                - "new tab" opens a new tab
+                - ""
   
         */
     }

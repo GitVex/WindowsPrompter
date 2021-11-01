@@ -38,6 +38,7 @@
                      Name="Searchbox"
                      GotFocus="Searchbox_GotFocus"
                      LostFocus="Searchbox_LostFocus"
+                     TextChanged="Searchbox_TextChanged"
                      Panel.ZIndex="2"/>
             <TextBlock Height="50" Width="730"
                      Background="#00000000"
