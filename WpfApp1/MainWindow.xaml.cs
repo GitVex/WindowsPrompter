@@ -23,7 +23,6 @@ namespace WpfApp1
         {
             InitializeComponent();
             watermark(Searchbox, Searchbox_Watermark, "Suchen ...");
-
         }
 
         private void watermark(TextBox Controller, TextBlock Watermark, string msg)
@@ -54,9 +53,13 @@ namespace WpfApp1
                 //insert code for parsing the textbox Text to python.
                 try
                 {
+                    string pythonPath = "C:\\VSProjects\\WpfApp1\\PythonCLI\\CLIExec.py " + Searchbox.Text;
+
                     Process python = new Process();
-                    python.StartInfo.FileName = "../PythonCLI/CLIExec.py";
+                    python.StartInfo.FileName = pythonPath;
+                    python.StartInfo = new ProcessStartInfo(@"python.exe", pythonPath);
                     python.StartInfo.UseShellExecute = false;
+                    python.StartInfo.CreateNoWindow = true;
                     python.Start();
                 }
                 catch (Exception ex)
