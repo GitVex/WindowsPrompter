@@ -50,6 +50,7 @@
                      Name="Searchbox_Watermark">
                 Suchen ...
             </TextBlock>
+            
         </Grid>
         <Rectangle Name="Resultbox"
                    Height="50" Width="700" 
@@ -57,5 +58,8 @@
                    Margin="30"
                    Fill="#590929"
                    Panel.ZIndex="0"/>
+        <TextBlock Name="Debugbox"
+                   Height="50" Width="500"
+                   VerticalAlignment="Bottom"/>
     </Grid>
 </Window>

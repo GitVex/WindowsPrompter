@@ -53,13 +53,26 @@ namespace WpfApp1
                 //insert code for parsing the textbox Text to python.
                 try
                 {
-                    string pythonPath = "C:\\VSProjects\\WpfApp1\\PythonCLI\\CLIExec.py " + Searchbox.Text;
+                    //C:\\VSProjects\\WpfApp1\\PythonCLI\\CLIExec.py
+                    var currentPath = System.IO.Directory.GetCurrentDirectory();
+                    var pythonPath = System.IO.Directory.GetParent(currentPath) + "\\PythonCLI\\CLIExec.py";
 
-                    Process python = new Process();
-                    python.StartInfo.FileName = pythonPath;
-                    python.StartInfo = new ProcessStartInfo(@"python.exe", pythonPath);
-                    python.StartInfo.UseShellExecute = false;
-                    python.StartInfo.CreateNoWindow = true;
+                    Debugbox.Text = pythonPath;
+
+                    var python = new Process
+                    {
+                        StartInfo = new ProcessStartInfo
+                        {
+                            FileName = Environment.GetEnvironmentVariable("%PYTHON%"),
+                            Arguments = pythonPath,
+                            UseShellExecute = false,
+                            CreateNoWindow = true,
+                            RedirectStandardOutput = true,
+                            RedirectStandardError = true
+                        },
+                        EnableRaisingEvents = true
+                    };
+
                     python.Start();
                 }
                 catch (Exception ex)
