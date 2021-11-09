@@ -11,4 +11,5 @@ def searcher(string):
 
     return args.Searchbox_input
 
-searcher(args.Searchbox_input)
+print(searcher(args.Searchbox_input));
+sys.stdout.flush();

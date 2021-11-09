@@ -54,8 +54,10 @@ namespace WpfApp1
                 try
                 {
                     //C:\\VSProjects\\WpfApp1\\PythonCLI\\CLIExec.py
-                    var currentPath = System.IO.Directory.GetCurrentDirectory();
-                    var pythonPath = System.IO.Directory.GetParent(currentPath) + "\\PythonCLI\\CLIExec.py";
+                    // This is only for the Debug environemnt path
+                    var currentPath = AppDomain.CurrentDomain.BaseDirectory;
+                    var pythonPath = System.IO.Path.Combine(currentPath, @"..\..\..\..\PythonCLI\CLIExec.py");
+                    pythonPath = System.IO.Path.GetFullPath(pythonPath);
 
                     Debugbox.Text = pythonPath;
 
@@ -63,7 +65,8 @@ namespace WpfApp1
                     {
                         StartInfo = new ProcessStartInfo
                         {
-                            FileName = Environment.GetEnvironmentVariable("%PYTHON%"),
+                            //FileName = Environment.ExpandEnvironmentVariables("%PYTHON%"),
+                            FileName = @"python.exe",
                             Arguments = pythonPath,
                             UseShellExecute = false,
                             CreateNoWindow = true,
@@ -72,8 +75,10 @@ namespace WpfApp1
                         },
                         EnableRaisingEvents = true
                     };
+                    python.OutputDataReceived += Python_OutputDataRecieved;
 
                     python.Start();
+
                 }
                 catch (Exception ex)
                 {
@@ -83,12 +88,18 @@ namespace WpfApp1
                 {
                     Resultbox.Height += 10;
                 }
+
             } 
             else
             {
                 Resultbox.Height = 50;
             }
             Searchbox.IsReadOnly = false;
+        }
+
+        private void Python_OutputDataRecieved(object sender, DataReceivedEventArgs e)
+        {
+            Debugbox.Text = e.Data;
         }
 
 
