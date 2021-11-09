@@ -58,6 +58,7 @@ namespace WpfApp1
                     var currentPath = AppDomain.CurrentDomain.BaseDirectory;
                     var pythonPath = System.IO.Path.Combine(currentPath, @"..\..\..\..\PythonCLI\CLIExec.py");
                     pythonPath = System.IO.Path.GetFullPath(pythonPath);
+                    pythonPath += ' ' + Searchbox.Text.Replace(' ', '-');
 
                     Debugbox.Text = pythonPath;
 
@@ -99,7 +100,7 @@ namespace WpfApp1
 
         private void Python_OutputDataRecieved(object sender, DataReceivedEventArgs e)
         {
-            Debugbox.Text = e.Data;
+            Debugbox.Text += " | " + e.Data;
         }
 
 
