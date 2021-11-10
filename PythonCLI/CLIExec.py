@@ -7,7 +7,8 @@ parser.add_argument('Searchbox_input', type=str)
 args = parser.parse_args()
 
 args.Searchbox_input = args.Searchbox_input.replace('-', ' ')
-command_palette = ["start obsidian", "ping google.com"]
+command_palette = ["start obsidian", 
+                   "ping google.com"]
 
 
 def searcher(string):
