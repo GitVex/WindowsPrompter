@@ -60,25 +60,24 @@ namespace WpfApp1
                     pythonPath = System.IO.Path.GetFullPath(pythonPath);
                     pythonPath += ' ' + Searchbox.Text.Replace(' ', '-');
 
-                    Debugbox.Text = pythonPath;
-
-                    var python = new Process
+                    ProcessStartInfo pythonStartInfo = new ProcessStartInfo
                     {
-                        StartInfo = new ProcessStartInfo
-                        {
-                            //FileName = Environment.ExpandEnvironmentVariables("%PYTHON%"),
-                            FileName = @"python.exe",
-                            Arguments = pythonPath,
-                            UseShellExecute = false,
-                            CreateNoWindow = true,
-                            RedirectStandardOutput = true,
-                            RedirectStandardError = true
-                        },
-                        EnableRaisingEvents = true
+                        //FileName = Environment.ExpandEnvironmentVariables("%PYTHON%"),
+                        FileName = @"python.exe",
+                        Arguments = pythonPath,
+                        UseShellExecute = false,
+                        CreateNoWindow = true,
+                        RedirectStandardOutput = true,
+                        RedirectStandardError = true
                     };
+
+                    Process python = new Process();
+                    python.StartInfo = pythonStartInfo;
+                    python.EnableRaisingEvents = true;
                     python.OutputDataReceived += Python_OutputDataRecieved;
 
                     python.Start();
+                    python.BeginOutputReadLine();
 
                 }
                 catch (Exception ex)
@@ -100,7 +99,7 @@ namespace WpfApp1
 
         private void Python_OutputDataRecieved(object sender, DataReceivedEventArgs e)
         {
-            Debugbox.Text += " | " + e.Data;
+            
         }
 
 
