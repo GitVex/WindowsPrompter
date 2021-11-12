@@ -99,7 +99,7 @@ namespace WpfApp1
 
         private void Python_OutputDataRecieved(object sender, DataReceivedEventArgs e)
         {
-        
+            
         }
     }
 }

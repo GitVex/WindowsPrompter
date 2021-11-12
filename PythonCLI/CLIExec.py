@@ -1,5 +1,6 @@
 import argparse
 import os
+import re
 
 parser = argparse.ArgumentParser(
     description='Takes a user defined input and searches the command palette for appropriate commands.')
@@ -12,10 +13,15 @@ command_palette = ["start obsidian",
 
 
 def searcher(string):
-    if args.Searchbox_input in command_palette:
-        os.system(args.Searchbox_input)
+    re_pattern = re.compile(string)
+    hit_list = []
 
-    return args.Searchbox_input
+    for i in command_palette:
+        matchObject = re_pattern.search(i)
+        if matchObject:
+            hit_list.append(i)
+
+    return hit_list
 
 
 print(searcher(args.Searchbox_input), flush=True)
