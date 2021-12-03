@@ -18,7 +18,7 @@
     <Grid>
         <Grid Height="60" Width="790"
               VerticalAlignment="Top"
-              Panel.ZIndex="1">
+              Panel.ZIndex="2">
             <Grid.Effect>
                 <DropShadowEffect/>
             </Grid.Effect>
@@ -39,7 +39,7 @@
                      GotFocus="Searchbox_GotFocus"
                      LostFocus="Searchbox_LostFocus"
                      TextChanged="Searchbox_TextChanged"
-                     Panel.ZIndex="2"/>
+                     Panel.ZIndex="3"/>
             <TextBlock Height="50" Width="730"
                      Background="#00000000"
                      FontStyle="Normal" FontSize="30" Padding="3"
@@ -55,11 +55,19 @@
         <Rectangle Name="Resultbox"
                    Height="50" Width="700" 
                    VerticalAlignment="Top" 
-                   Margin="30"
+                   Margin="0,30,0,0"
                    Fill="#590929"
                    Panel.ZIndex="0"/>
+        <StackPanel Name="Resultlist"
+                    Height="10" Width="700"
+                    Margin="0,70,0,0"
+                    VerticalAlignment="Top"
+                    Panel.ZIndex="1">
+            
+        </StackPanel>
         <TextBlock Name="Debugbox"
-                   Height="50" Width="500"
-                   VerticalAlignment="Bottom"/>
+                   Height="Auto" Width="500"
+                   VerticalAlignment="Bottom"
+                   Text="Moin" TextAlignment="Center"/>
     </Grid>
 </Window>
